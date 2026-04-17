@@ -152,10 +152,10 @@ const FloatingCards = () => {
         {/* Heading */}
         <div className="absolute top-10 z-[5] text-center">
           <p className="text-xs uppercase tracking-[0.3em] text-white/40">
-            Selected Work — 2026
+            {/* Selected Work — 2026 */}
           </p>
           <h2 className="mt-3 font-serif text-5xl italic text-white/90 md:text-6xl">
-            Cities &amp; Stories
+            Envie de tester Auraliflow? 
           </h2>
         </div>
 
