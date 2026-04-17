@@ -1,44 +1,48 @@
 import logoAurali from "@/assets/logo-aurali-flow.png";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-foreground/80 backdrop-blur-xl border-b border-warm-tan/10">
-      <div className="container flex items-center justify-between h-16 px-4">
-        <img src={logoAurali} alt="Aurali Flow" className="h-7 brightness-0 invert" />
+    <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-6xl">
+      <div className="flex items-center justify-between h-14 pl-5 pr-2 rounded-full bg-foreground/95 backdrop-blur-xl border border-warm-tan/10 shadow-2xl">
+        <img src={logoAurali} alt="Aurali Flow" className="h-6 brightness-0 invert" />
 
-        <div className="hidden md:flex items-center gap-8 text-primary-foreground/70 text-sm">
-          <a href="#features" className="hover:text-primary-foreground transition-colors">Fonctionnalités</a>
-          <a href="#demo" className="hover:text-primary-foreground transition-colors">Démo</a>
-          <a href="#pricing" className="hover:text-primary-foreground transition-colors">Tarifs</a>
-          <a href="#temoignages" className="hover:text-primary-foreground transition-colors">Témoignages</a>
+        <div className="hidden md:flex items-center gap-1 absolute left-1/2 -translate-x-1/2 text-primary-foreground/70 text-sm">
+          <a href="#features" className="px-4 py-1.5 rounded-full hover:bg-primary-foreground/10 hover:text-primary-foreground transition-all">Accueil</a>
+          <a href="#demo" className="px-4 py-1.5 rounded-full hover:bg-primary-foreground/10 hover:text-primary-foreground transition-all">À propos</a>
+          <a href="#pricing" className="px-4 py-1.5 rounded-full hover:bg-primary-foreground/10 hover:text-primary-foreground transition-all">Tarifs</a>
+          <a href="#temoignages" className="px-4 py-1.5 rounded-full hover:bg-primary-foreground/10 hover:text-primary-foreground transition-all">Témoignages</a>
+          <Link to="/business" className="px-4 py-1.5 rounded-full hover:bg-primary-foreground/10 hover:text-primary-foreground transition-all">Business</Link>
         </div>
 
-        <div className="hidden md:flex items-center gap-3">
-          <button className="px-5 py-2 rounded-full text-primary-foreground text-sm font-medium hover:bg-primary-foreground/10 transition-all">
-            Se connecter
-          </button>
-          <button className="px-5 py-2 rounded-full bg-primary-foreground text-foreground text-sm font-semibold hover:scale-105 transition-transform">
-            Télécharger l'app
-          </button>
-        </div>
+        <button
+          className="hidden md:block px-5 py-2 rounded-full text-foreground text-sm font-semibold hover:scale-105 transition-transform"
+          style={{ backgroundColor: "hsl(45 95% 55%)" }}
+        >
+          Télécharger
+        </button>
 
-        <button className="md:hidden text-primary-foreground" onClick={() => setOpen(!open)}>
+        <button className="md:hidden text-primary-foreground pr-3" onClick={() => setOpen(!open)}>
           {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
 
       {open && (
-        <div className="md:hidden bg-foreground/95 backdrop-blur-xl border-t border-warm-tan/10 px-4 py-6 space-y-4">
-          <a href="#features" className="block text-primary-foreground/80 text-sm py-2" onClick={() => setOpen(false)}>Fonctionnalités</a>
-          <a href="#demo" className="block text-primary-foreground/80 text-sm py-2" onClick={() => setOpen(false)}>Démo</a>
+        <div className="md:hidden mt-2 bg-foreground/95 backdrop-blur-xl rounded-3xl border border-warm-tan/10 px-5 py-5 space-y-3 shadow-2xl">
+          <a href="#features" className="block text-primary-foreground/80 text-sm py-2" onClick={() => setOpen(false)}>Accueil</a>
+          <a href="#demo" className="block text-primary-foreground/80 text-sm py-2" onClick={() => setOpen(false)}>À propos</a>
           <a href="#pricing" className="block text-primary-foreground/80 text-sm py-2" onClick={() => setOpen(false)}>Tarifs</a>
           <a href="#temoignages" className="block text-primary-foreground/80 text-sm py-2" onClick={() => setOpen(false)}>Témoignages</a>
-          <button className="w-full px-5 py-3 rounded-full bg-primary-foreground text-foreground text-sm font-semibold">
-            Télécharger l'app
+          <Link to="/business" className="block text-primary-foreground/80 text-sm py-2" onClick={() => setOpen(false)}>Business</Link>
+          <button
+            className="w-full px-5 py-3 rounded-full text-foreground text-sm font-semibold"
+            style={{ backgroundColor: "hsl(45 95% 55%)" }}
+          >
+            Télécharger
           </button>
         </div>
       )}

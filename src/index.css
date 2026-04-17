@@ -34,6 +34,9 @@
     --input: 25 20% 88%;
     --ring: 15 60% 30%;
 
+    --aurali: 8 50% 16%;
+    --aurali-foreground: 30 30% 92%;
+
     --radius: 0.75rem;
 
     /* Custom tokens */
